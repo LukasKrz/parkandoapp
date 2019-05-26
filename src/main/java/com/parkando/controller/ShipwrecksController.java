@@ -4,6 +4,7 @@ import com.parkando.model.Shipwreck;
 import com.parkando.repository.ShipwreckRepository;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,12 +16,12 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("api/v1/")
-public class ParkandoController {
+public class ShipwrecksController {
 
     @Autowired
     private ShipwreckRepository shipwreckRepository;
 
-    @RequestMapping(value = "shipwrecks", method = RequestMethod.GET)
+    @GetMapping("shipwrecks")
     public List<Shipwreck> list() {
         return shipwreckRepository.findAll();
     }
@@ -51,27 +52,27 @@ public class ParkandoController {
 
 //    @RequestMapping(value = "shipwrecks", method = RequestMethod.GET)
 //    public List<Shipwreck> list() {
-//        return ShipwreckStub.list();
+//        return ShipwreckMock.list();
 //    }
 //
 //    @RequestMapping(value = "shipwrecks", method = RequestMethod.POST)
 //    public Shipwreck create(@RequestBody Shipwreck shipwreck) {
-//        return ShipwreckStub.create(shipwreck);
+//        return ShipwreckMock.create(shipwreck);
 //    }
 //
 //    @RequestMapping(value = "shipwrecks/{id}", method = RequestMethod.GET)
 //    public Shipwreck get(@PathVariable Long id) {
-//        return ShipwreckStub.get(id);
+//        return ShipwreckMock.get(id);
 //    }
 //
 //    @RequestMapping(value = "shipwrecks/{id}", method = RequestMethod.PUT)
 //    public Shipwreck update(@PathVariable Long id, @RequestBody Shipwreck shipwreck) {
-//        return ShipwreckStub.update(id, shipwreck);
+//        return ShipwreckMock.update(id, shipwreck);
 //    }
 //
 //    @RequestMapping(value = "shipwrecks/{id}", method = RequestMethod.DELETE)
 //    public Shipwreck delete(@PathVariable Long id) {
-//        return ShipwreckStub.delete(id);
+//        return ShipwreckMock.delete(id);
 //    }
 
 }

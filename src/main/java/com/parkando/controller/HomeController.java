@@ -8,6 +8,6 @@ public class HomeController {
 
     @RequestMapping("/")
     public String home(){
-        return "This is Parkando-App";
+        return "To jest Parkando - aplikacja do rezerwowania miejsc parkingowych";
     }
 }

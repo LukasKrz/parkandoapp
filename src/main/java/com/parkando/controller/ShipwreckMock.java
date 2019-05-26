@@ -7,7 +7,7 @@ import java.util.Map;
 
 import com.parkando.model.Shipwreck;
 
-public class ShipwreckStub {
+public class ShipwreckMock {
 	private static Map<Long, Shipwreck> wrecks = new HashMap<Long, Shipwreck>();
 	private static Long idIndex = 3L;
 

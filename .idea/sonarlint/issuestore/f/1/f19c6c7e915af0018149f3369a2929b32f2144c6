@@ -1,15 +1,0 @@
-
-ksquid:S4488!"HReplace "@RequestMapping(method = RequestMethod.GET)" with "@GetMapping"(½£Æùÿÿÿÿ8œÑâë®-
-csquid:S4684'"@Replace this persistent entity with a simple POJO or DTO object.(œæûáüÿÿÿÿ8œÑâë®-
-qsquid:S4488-"NReplace "@RequestMapping(method = RequestMethod.DELETE)" with "@DeleteMapping"(ÿ³¥øÿÿÿÿ8œÑâë®-
-isquid:CommentedOutCodeLineI"<This block of commented-out lines of code should be removed.(½¢€®8œÑâë®-
-nsquid:CommentedOutCodeLineD"<This block of commented-out lines of code should be removed.(‘è»®şÿÿÿÿ8œÑâë®-
-csquid:S4684"@Replace this persistent entity with a simple POJO or DTO object.(€çŒœúÿÿÿÿ8œÑâë®-
-nsquid:CommentedOutCodeLine?"<This block of commented-out lines of code should be removed.( ‘ãñüÿÿÿÿ8œÑâë®-
-ksquid:S4488"HReplace "@RequestMapping(method = RequestMethod.GET)" with "@GetMapping"(Ö¦Âøÿÿÿÿ8œÑâë®-
-ksquid:S4488&"HReplace "@RequestMapping(method = RequestMethod.PUT)" with "@PutMapping"(ÌµŒâøÿÿÿÿ8œÑâë®-
-]squid:S36550"@Call "existingShipwreck.isPresent()" before accessing the value.(¼ß—P8ÂÛìë®-
-hsquid:CommentedOutCodeLine:"<This block of commented-out lines of code should be removed.(¨§ˆw8œÑâë®-
-^squid:S3655*"@Call "existingShipwreck.isPresent()" before accessing the value.(™Ûìÿ8À¶èë®-
-nsquid:CommentedOutCodeLine5"<This block of commented-out lines of code should be removed.(“åøÿùÿÿÿÿ8œÑâë®-
-msquid:S4488"JReplace "@RequestMapping(method = RequestMethod.POST)" with "@PostMapping"(Ü‘Õûÿÿÿÿ8œÑâë®-
