@@ -22,7 +22,7 @@ public class MiejscePodstawowe {
     @Column(name = "PARKPLACEID")
     Long parkPlaceId;
 
-    @Column(name = "IDSTUDENTDZIENNY")
+    @Column(name = "IDSTUDENTDZIENNY")   // TODO LuKr cardId instead of student ID
     Long idStudentDzienny;
 
     @Column(name = "DATAREZERWACJIDZIENNY")

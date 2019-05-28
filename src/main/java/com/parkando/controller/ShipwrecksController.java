@@ -49,30 +49,4 @@ public class ShipwrecksController {
         shipwreckRepository.delete(existingShipwreck.get());
         return existingShipwreck.get();
     }
-
-//    @RequestMapping(value = "shipwrecks", method = RequestMethod.GET)
-//    public List<Shipwreck> list() {
-//        return ShipwreckMock.list();
-//    }
-//
-//    @RequestMapping(value = "shipwrecks", method = RequestMethod.POST)
-//    public Shipwreck create(@RequestBody Shipwreck shipwreck) {
-//        return ShipwreckMock.create(shipwreck);
-//    }
-//
-//    @RequestMapping(value = "shipwrecks/{id}", method = RequestMethod.GET)
-//    public Shipwreck get(@PathVariable Long id) {
-//        return ShipwreckMock.get(id);
-//    }
-//
-//    @RequestMapping(value = "shipwrecks/{id}", method = RequestMethod.PUT)
-//    public Shipwreck update(@PathVariable Long id, @RequestBody Shipwreck shipwreck) {
-//        return ShipwreckMock.update(id, shipwreck);
-//    }
-//
-//    @RequestMapping(value = "shipwrecks/{id}", method = RequestMethod.DELETE)
-//    public Shipwreck delete(@PathVariable Long id) {
-//        return ShipwreckMock.delete(id);
-//    }
-
 }

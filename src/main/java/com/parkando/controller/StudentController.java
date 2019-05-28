@@ -1,8 +1,8 @@
 package com.parkando.controller;
 
 import com.parkando.model.Student;
-import com.parkando.repository.StudentRepository;
-import org.springframework.beans.BeanUtils;
+import com.parkando.service.StudentService;
+import com.parkando.service.StudentZwalidowanyDO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -17,60 +17,36 @@ import java.util.Optional;
 @RequestMapping("/")
 public class StudentController {
 
-//    @RequestMapping(value = "studenci", method = RequestMethod.GET)
-//    public List<Student> list() {
-//        return StudenciMock.list();
-//    }
-//
-//    @RequestMapping(value = "studenci", method = RequestMethod.POST)
-//    public Student create(@RequestBody Student student) {
-//        return StudenciMock.create(student);
-//    }
-//
-//    @RequestMapping(value = "studenci/{id}", method = RequestMethod.GET)
-//    public Student get(@PathVariable Long id) {
-//        return StudenciMock.get(id);
-//    }
-//
-//    @RequestMapping(value = "studenci/{id}", method = RequestMethod.PUT)
-//    public Student update(@PathVariable Long id, @RequestBody Student student) {
-//        return StudenciMock.update(id, student);
-//    }
-//
-//    @RequestMapping(value = "studenci/{id}", method = RequestMethod.DELETE)
-//    public Student delete(@PathVariable Long id) {
-//        return StudenciMock.delete(id);
-//    }
+    @RequestMapping(value = "studenci/walidacja/{card_id}", method = RequestMethod.GET)
+    public StudentZwalidowanyDO waliduj(@PathVariable Long card_id) {
+        return studentService.waliduj(card_id);
+    }
 
     @Autowired
-    private StudentRepository studentRepository;
+    private StudentService studentService;
 
     @RequestMapping(value = "studenci", method = RequestMethod.GET)
     public List<Student> list() {
-        return studentRepository.findAll();
+        return studentService.list();
     }
 
     @RequestMapping(value = "studenci", method = RequestMethod.POST)
     public Student create(@RequestBody Student student) {
-        return studentRepository.saveAndFlush(student);
+        return studentService.create(student);
     }
 
     @RequestMapping(value = "studenci/{id}", method = RequestMethod.GET)
     public Optional<Student> get(@PathVariable Long id) {
-        return studentRepository.findById(id);
+        return studentService.get(id);
     }
 
     @RequestMapping(value = "studenci/{id}", method = RequestMethod.PUT)
     public Student update(@PathVariable Long id, @RequestBody Student student) {
-        Optional<Student> existingStudent = studentRepository.findById(id);
-        BeanUtils.copyProperties(student, existingStudent);
-        return studentRepository.saveAndFlush(existingStudent.get());
+        return studentService.update(id, student);
     }
 
     @RequestMapping(value = "studenci/{id}", method = RequestMethod.DELETE)
     public Student delete(@PathVariable Long id) {
-        Optional<Student> existingStudent = studentRepository.findById(id);
-        studentRepository.delete(existingStudent.get());
-        return existingStudent.get();
+        return studentService.delete(id);
     }
 }

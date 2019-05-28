@@ -48,29 +48,4 @@ public class MiejscaDodatkoweController {
         miejsceDodatkoweRepository.delete(existingMiejsce.get());
         return existingMiejsce.get();
     }
-
-    //    @RequestMapping(value = "miejsca", method = RequestMethod.GET)
-//    public List<MiejscePodstawowe> list() {
-//        return MiejscaMock.list();
-//    }
-//
-//    @RequestMapping(value = "miejsca", method = RequestMethod.POST)
-//    public MiejscePodstawowe create(@RequestBody MiejscePodstawowe miejsce) {
-//        return MiejscaMock.create(miejsce);
-//    }
-//
-//    @RequestMapping(value = "miejsca/{id}", method = RequestMethod.GET)
-//    public MiejscePodstawowe get(@PathVariable Long id) {
-//        return MiejscaMock.get(id);
-//    }
-//
-//    @RequestMapping(value = "miejsca/{id}", method = RequestMethod.PUT)
-//    public MiejscePodstawowe update(@PathVariable Long id, @RequestBody MiejscePodstawowe miejsce) {
-//        return MiejscaMock.update(id, miejsce);
-//    }
-//
-//    @RequestMapping(value = "miejsca/{id}", method = RequestMethod.DELETE)
-//    public MiejscePodstawowe delete(@PathVariable Long id) {
-//        return MiejscaMock.delete(id);
-//    }
 }

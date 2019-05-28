@@ -65,7 +65,7 @@ public class CommandLineAppStartupRunner implements CommandLineRunner {
     }
 
     private List<MiejscePodstawowe> createMiejscaPodstawowe() {
-        MiejscePodstawowe m1 = new MiejscePodstawowe("A", 1L, 1L, Date.valueOf(LocalDate.now()), 2L, Date.valueOf(LocalDate.now()));
+        MiejscePodstawowe m1 = new MiejscePodstawowe("A", 1L, 101L, Date.valueOf(LocalDate.now()), 2L, Date.valueOf(LocalDate.now()));
         MiejscePodstawowe m2 = new MiejscePodstawowe("A", 2L, 3L, Date.valueOf(LocalDate.now()), 4L, Date.valueOf(LocalDate.now()));
         MiejscePodstawowe m3 = new MiejscePodstawowe("A", 3L, 5L, Date.valueOf(LocalDate.now()), 6L, Date.valueOf(LocalDate.now()));
         MiejscePodstawowe m4 = new MiejscePodstawowe("A", 4L, 7L, Date.valueOf(LocalDate.now()), 8L, Date.valueOf(LocalDate.now()));
@@ -80,7 +80,7 @@ public class CommandLineAppStartupRunner implements CommandLineRunner {
     private List<MiejsceDodatkowe> createMiejscaDodatkowe() {
         MiejsceDodatkowe m8 = new MiejsceDodatkowe("A", 8L, 1L, Date.valueOf(LocalDate.now()), 2L, Date.valueOf(LocalDate.now()));
         MiejsceDodatkowe m9 = new MiejsceDodatkowe("A", 9L, 3L, Date.valueOf(LocalDate.now()), 4L, Date.valueOf(LocalDate.now()));
-        MiejsceDodatkowe m10 = new MiejsceDodatkowe("A", 10L, 5L, Date.valueOf(LocalDate.now()), 6L, Date.valueOf(LocalDate.now()));
+        MiejsceDodatkowe m10 = new MiejsceDodatkowe("A", 10L, 5L, Date.valueOf(LocalDate.now()), 6L, Date.valueOf(LocalDate.now().minusDays(10)));
         List<MiejsceDodatkowe> miejsca = new ArrayList<>();
         miejsca.addAll(Arrays.asList(m8, m9, m10));
         return miejsca;
