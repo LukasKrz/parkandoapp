@@ -1,6 +1,7 @@
 package com.parkando.controller;
 
 import com.parkando.model.Student;
+import com.parkando.service.StudentDoWalidacjiDO;
 import com.parkando.service.StudentService;
 import com.parkando.service.StudentZwalidowanyDO;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,8 +19,13 @@ import java.util.Optional;
 public class StudentController {
 
     @RequestMapping(value = "studenci/walidacja/{card_id}", method = RequestMethod.GET)
-    public StudentZwalidowanyDO waliduj(@PathVariable Long card_id) {
-        return studentService.waliduj(card_id);
+    public StudentZwalidowanyDO validateStudent(@PathVariable Long card_id) {
+        return studentService.validateStudent(card_id);
+    }
+
+    @RequestMapping(value = "studenci/walidacja", method = RequestMethod.POST)
+    public StudentZwalidowanyDO validateStudentAndCheckMiejsce(@RequestBody StudentDoWalidacjiDO studentDoWalidacjiDO) {
+        return studentService.validateStudentAndCheckMiejsce(studentDoWalidacjiDO);
     }
 
     @Autowired

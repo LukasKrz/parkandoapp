@@ -7,6 +7,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import java.sql.Date;
+import java.time.LocalDate;
 
 @Entity
 @Table(name = "MIEJSCEPODSTAWOWE")
@@ -26,18 +27,18 @@ public class MiejscePodstawowe {
     Long idStudentDzienny;
 
     @Column(name = "DATAREZERWACJIDZIENNY")
-    Date dataRezerwacjiDzienny;
+    LocalDate dataRezerwacjiDzienny;
 
-    @Column(name = "IDSTUDENTZAOCZNY")
+    @Column(name = "IDSTUDENTZAOCZNY")   // TODO LuKr cardId instead of student ID
     Long idStudentZaoczny;
 
     @Column(name = "DATAREZERWACJIZAOCZNY")
-    Date dataRezerwacjiZaoczny;
+    LocalDate dataRezerwacjiZaoczny;
 
     public MiejscePodstawowe() {
     }
 
-    public MiejscePodstawowe(String parkId, Long parkPlaceId, Long idStudentDzienny, Date dataRezerwacjiDzienny, Long idStudentZaoczny, Date dataRezerwacjiZaoczny) {
+    public MiejscePodstawowe(String parkId, Long parkPlaceId, Long idStudentDzienny, LocalDate dataRezerwacjiDzienny, Long idStudentZaoczny, LocalDate dataRezerwacjiZaoczny) {
         this.parkId = parkId;
         this.parkPlaceId = parkPlaceId;
         this.idStudentDzienny = idStudentDzienny;
@@ -78,11 +79,11 @@ public class MiejscePodstawowe {
         this.idStudentDzienny = idStudentDzienny;
     }
 
-    public Date getDataRezerwacjiDzienny() {
+    public LocalDate getDataRezerwacjiDzienny() {
         return dataRezerwacjiDzienny;
     }
 
-    public void setDataRezerwacjiDzienny(Date dataRezerwacjiDzienny) {
+    public void setDataRezerwacjiDzienny(LocalDate dataRezerwacjiDzienny) {
         this.dataRezerwacjiDzienny = dataRezerwacjiDzienny;
     }
 
@@ -94,11 +95,11 @@ public class MiejscePodstawowe {
         this.idStudentZaoczny = idStudentZaoczny;
     }
 
-    public Date getDataRezerwacjiZaoczny() {
+    public LocalDate getDataRezerwacjiZaoczny() {
         return dataRezerwacjiZaoczny;
     }
 
-    public void setDataRezerwacjiZaoczny(Date dataRezerwacjiZaoczny) {
+    public void setDataRezerwacjiZaoczny(LocalDate dataRezerwacjiZaoczny) {
         this.dataRezerwacjiZaoczny = dataRezerwacjiZaoczny;
     }
 }
