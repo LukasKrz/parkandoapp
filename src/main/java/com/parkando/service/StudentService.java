@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -59,10 +60,19 @@ public class StudentService {
         studentZwalidowanyDO.setSurname(studentDoWalidacjiDO.getSurname());
         studentZwalidowanyDO.setUser_type(studentFromDb.getUserType());
         List<MiejscePodstawowe> miejscaPodstawowe = miejsceService.listPodstawowe();
-        if (miejscaPodstawowe.stream().anyMatch(miejscePodstawowe -> miejscePodstawowe.getIdStudentDzienny().equals(studentDoWalidacjiDO.getCard_id()))) {
-            studentZwalidowanyDO.setPark_place_id(miejscaPodstawowe.stream()
-                    .filter(miejscePodstawowe -> miejscePodstawowe.getIdStudentDzienny().equals(studentDoWalidacjiDO.getCard_id())).findFirst().get().getParkPlaceId());
-            studentZwalidowanyDO.setPark_id("A");
+        if (studentZwalidowanyDO.getUser_type().equals("dzienny")) {
+            if (hasStudentDziennyMiejscePodstawowe(studentDoWalidacjiDO, miejscaPodstawowe)) {
+                studentZwalidowanyDO.setPark_place_id(miejscaPodstawowe.stream()
+                        .filter(miejscePodstawowe -> miejscePodstawowe.getIdStudentDzienny().equals(studentDoWalidacjiDO.getCard_id())).findFirst().get().getParkPlaceId());
+                studentZwalidowanyDO.setPark_id("A");
+            }
+        }
+        if (studentZwalidowanyDO.getUser_type().equals("zaoczny")) {
+            if (hasStudentZaocznyMiejscePodstawowe(studentDoWalidacjiDO, miejscaPodstawowe)) {
+                studentZwalidowanyDO.setPark_place_id(miejscaPodstawowe.stream()
+                        .filter(miejscePodstawowe -> miejscePodstawowe.getIdStudentZaoczny().equals(studentDoWalidacjiDO.getCard_id())).findFirst().get().getParkPlaceId());
+                studentZwalidowanyDO.setPark_id("A");
+            }
         }
         return studentZwalidowanyDO;
     }
@@ -71,6 +81,16 @@ public class StudentService {
         return studentRepository.findAll().stream().filter(student -> student.getCardId().equals(studentDoWalidacjiDO.getCard_id())
                 && student.getName().equals(studentDoWalidacjiDO.getName())
                 && student.getSurname().equals(studentDoWalidacjiDO.getSurname())).collect(Collectors.toList()).get(0);
+    }
+
+    private boolean hasStudentDziennyMiejscePodstawowe(StudentDoWalidacjiDO studentDoWalidacjiDO, List<MiejscePodstawowe> miejscaPodstawowe) {
+        return miejscaPodstawowe.stream().anyMatch(miejscePodstawowe -> miejscePodstawowe.getIdStudentDzienny().equals(studentDoWalidacjiDO.getCard_id())
+                && miejscePodstawowe.getDataRezerwacjiDzienny().isAfter(LocalDate.now().minusDays(7L)));
+    }
+
+    private boolean hasStudentZaocznyMiejscePodstawowe(StudentDoWalidacjiDO studentDoWalidacjiDO, List<MiejscePodstawowe> miejscaPodstawowe) {
+        return miejscaPodstawowe.stream().anyMatch(miejscePodstawowe -> miejscePodstawowe.getIdStudentZaoczny().equals(studentDoWalidacjiDO.getCard_id())
+                && miejscePodstawowe.getDataRezerwacjiZaoczny().isAfter(LocalDate.now().minusDays(7L)));
     }
 
     private StudentDoWalidacjiDO createStudentDOWalidacji(Student student) {

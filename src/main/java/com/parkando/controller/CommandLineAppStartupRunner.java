@@ -69,9 +69,9 @@ public class CommandLineAppStartupRunner implements CommandLineRunner {
         MiejscePodstawowe m2 = new MiejscePodstawowe("A", 2L, 3L, LocalDate.now(), 4L, LocalDate.now());
         MiejscePodstawowe m3 = new MiejscePodstawowe("A", 3L, 5L, LocalDate.now().minusDays(10L), 6L, LocalDate.now());
         MiejscePodstawowe m4 = new MiejscePodstawowe("A", 4L, 7L, LocalDate.now(), 8L, LocalDate.now());
-        MiejscePodstawowe m5 = new MiejscePodstawowe("A", 5L, 9L, LocalDate.now(), 10L, LocalDate.now());
+        MiejscePodstawowe m5 = new MiejscePodstawowe("A", 5L, 9L, LocalDate.now(), 103L, LocalDate.now().minusDays(4L));
         MiejscePodstawowe m6 = new MiejscePodstawowe("A", 6L, 11L, LocalDate.now().minusDays(8L), 12L, LocalDate.now());
-        MiejscePodstawowe m7 = new MiejscePodstawowe("A", 7L, 13L, LocalDate.now(), 14L, LocalDate.now());
+        MiejscePodstawowe m7 = new MiejscePodstawowe("A", 7L, 13L, LocalDate.now(), 102L, LocalDate.now().minusDays(3L));
         List<MiejscePodstawowe> miejsca = new ArrayList<>();
         miejsca.addAll(Arrays.asList(m1, m2, m3, m4, m5, m6, m7));
         return miejsca;
@@ -89,7 +89,7 @@ public class CommandLineAppStartupRunner implements CommandLineRunner {
     private List<Student> createStudenci() {
         Student s1 = new Student(101L, "Kunegunda", "Trupinska", "dzienny", "d.awid@interia.pl");
         Student s2 = new Student(102L, "Joanna", "Kosteczka", "zaoczny", "d.awid@interia.pl");
-        Student s3 = new Student(103L, "Teodor", "Skostnialy", "dzienny", "d.awid@interia.pl");
+        Student s3 = new Student(103L, "Teodor", "Skostnialy", "zaoczny", "d.awid@interia.pl");
         Student s4 = new Student(104L, "Kornelia", "Zmrok", "zaoczny", "d.awid@interia.pl");
         Student s5 = new Student(105L, "Adam", "Mickiewicz", "dzienny", "d.awid@interia.pl");
         Student s6 = new Student(106L, "Juliusz", "Slowacki", "zaoczny", "d.awid@interia.pl");
